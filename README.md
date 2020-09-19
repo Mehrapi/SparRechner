@@ -3,4 +3,4 @@ Mit diesem Java Projekt versuche ich einen Ersparnis Rechner App zu verviklichen
 
 Eine Snapshot der fertigen App ist unten zu sehen. 
 
-![SparRechner](https://user-images.githubusercontent.com/71266593/93664999-5277fe00-fa73-11ea-818f-d94d5c0717b1.PNG)
+![ErsparnisRechner](https://user-images.githubusercontent.com/71266593/93665659-7ee24900-fa78-11ea-86e0-737296fe8290.PNG)

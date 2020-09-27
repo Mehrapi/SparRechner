@@ -25,8 +25,7 @@ Die Bilder unten zeigen, wie die Applikation funktioniert.
 
 Bereit für die berechnung der Anzahl der Monate
 
-
-![ErsparnisAssistant4](https://user-images.githubusercontent.com/71266593/94361535-3dbfe980-00b5-11eb-87ce-25b490565abd.PNG)
+![ErsparnisAssistant4](https://user-images.githubusercontent.com/71266593/94362343-e91f6d00-00ba-11eb-9243-ed4d202f5889.PNG)
 
 Nach Berechnung von der Anzahl der Monate
 

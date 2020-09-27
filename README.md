@@ -4,4 +4,7 @@ Mit diesem Java Projekt habe ich eine Ersparnis Rechner App verwirklicht 👍 . 
 Eine Snapshot der fertigen App ist unten 👇 zu sehen. 
 
 
-![ErsparnisRechner](https://user-images.githubusercontent.com/71266593/94336727-7b554180-ffe5-11ea-9ee6-237eb3aac5c9.PNG)
+![ErsparnisAssistant](https://user-images.githubusercontent.com/71266593/94355583-7516a200-0085-11eb-8ccb-23c37baf6d3f.png)
+
+
+

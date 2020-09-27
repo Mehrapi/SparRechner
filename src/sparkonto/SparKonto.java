@@ -14,13 +14,20 @@ public class SparKonto extends JFrame {
  JLabel monateLabel = new JLabel();
  JLabel schlussLabel = new JLabel();
  JTextField einzahlungTextField = new JTextField();
-JTextField zinsenTextField = new JTextField();
+ JTextField zinsenTextField = new JTextField();
  JTextField  monateTextField = new JTextField();
  JTextField schlussTextField = new JTextField();
  JButton berechnenButton = new JButton();
  JButton beendenButton = new JButton();
  JButton loschenButton = new JButton();
+ JButton anzahlmonateButton = new JButton();
+ JButton schlusssaldoButton = new JButton();
+ JLabel erklarungLabel = new JLabel();
+ JTextArea erklarungTextArea = new JTextArea();
  
+ Font meinFont = new Font("Arial", Font.PLAIN, 16);
+ Color lightYellow = new Color(255, 255, 128);
+ boolean schlusssaldoBerechnen;
  
     public static void main(String[] args) {
         
@@ -32,7 +39,8 @@ JTextField zinsenTextField = new JTextField();
      {
          
       // Erstellung des Frames 
-         setTitle("Ersparnis  Rechner");
+         setTitle("Ersparnis  Assistant"
+                 + "");
          addWindowListener(new WindowAdapter()
          {
              public void windowClosing(WindowEvent e)
@@ -43,38 +51,52 @@ JTextField zinsenTextField = new JTextField();
          
         // Der GridBagLayout ist hier benutzt  
          getContentPane().setLayout(new GridBagLayout());
-         getContentPane().setBackground(Color.LIGHT_GRAY);
+         getContentPane().setBackground(new Color(204, 204, 204));
          
          
-         GridBagConstraints gridBedingung = new GridBagConstraints();
+         GridBagConstraints gridPlatz = new GridBagConstraints();
          
          einzahlungLabel.setText("Monatliche Einzahlung");
-         gridBedingung.gridx = 0;
-         gridBedingung.gridy = 0;
-         getContentPane().add(einzahlungLabel, gridBedingung);
+         einzahlungLabel.setFont(meinFont);
+         gridPlatz .gridx = 0;
+         gridPlatz .gridy = 0;
+         gridPlatz.anchor = GridBagConstraints.WEST;
+         gridPlatz .insets = new Insets(30, 20, 0, 20);
+         getContentPane().add(einzahlungLabel, gridPlatz );
          
          zinsenLabel.setText("Jährliche Zinszahlung");
-         gridBedingung.gridx = 0;
-         gridBedingung.gridy = 1;
-         getContentPane().add(zinsenLabel, gridBedingung);
+         zinsenLabel.setFont(meinFont);
+         gridPlatz .gridx = 0;
+         gridPlatz .gridy = 1;
+         gridPlatz.anchor = GridBagConstraints.WEST;
+         getContentPane().add(zinsenLabel, gridPlatz );
          
          monateLabel.setText("Anzahl der Monate");
-         gridBedingung.gridx = 0;
-         gridBedingung.gridy =2;
-         getContentPane().add(monateLabel, gridBedingung);
+         monateLabel.setFont(meinFont);
+         gridPlatz .gridx = 0;
+         gridPlatz .gridy =2;
+         gridPlatz.anchor = GridBagConstraints.WEST;
+         getContentPane().add(monateLabel, gridPlatz );
          
         schlussLabel.setText("Schlusssaldo");
-         gridBedingung.gridx = 0;
-         gridBedingung.gridy =3;
-         getContentPane().add(schlussLabel, gridBedingung);
+        schlussLabel.setFont(meinFont);
+         gridPlatz .gridx = 0;
+         gridPlatz .gridy =3;
+         gridPlatz.anchor = GridBagConstraints.WEST;
+         getContentPane().add(schlussLabel, gridPlatz );
          
          einzahlungTextField.setText("");
          einzahlungTextField.setColumns(10);
-         einzahlungTextField.setBackground(Color.LIGHT_GRAY);
+         einzahlungTextField.setPreferredSize(new Dimension(100, 25));
+         einzahlungTextField.setHorizontalAlignment(SwingConstants.RIGHT);
+         einzahlungTextField.setFont(meinFont);
+         //einzahlungTextField.setBackground(new Color(102, 255, 102));
          einzahlungTextField.setForeground(Color.BLUE);
-         gridBedingung.gridx = 2;
-         gridBedingung.gridy = 0;
-         getContentPane().add(einzahlungTextField, gridBedingung);
+         gridPlatz .gridx = 1;
+         gridPlatz .gridy = 0;
+         gridPlatz.anchor = GridBagConstraints.NORTHWEST;
+        // gridPlatz .insets = new Insets(30, 10, 0, 20);
+         getContentPane().add(einzahlungTextField, gridPlatz );
          einzahlungTextField.addActionListener(new ActionListener()
          {
              public void actionPerformed(ActionEvent e)
@@ -85,11 +107,16 @@ JTextField zinsenTextField = new JTextField();
          
          zinsenTextField.setText("");
          zinsenTextField.setColumns(10);
-         zinsenTextField.setBackground(Color.LIGHT_GRAY);
+         zinsenTextField.setPreferredSize(new Dimension(100, 25));
+         zinsenTextField.setHorizontalAlignment(SwingConstants.RIGHT);
+         zinsenTextField.setFont(meinFont);
+         //zinsenTextField.setBackground(new Color(102, 255, 102));
          zinsenTextField.setForeground(Color.BLUE);
-         gridBedingung.gridx = 2;
-         gridBedingung.gridy = 1;
-         getContentPane().add(zinsenTextField, gridBedingung);
+         gridPlatz .gridx = 1;
+         gridPlatz .gridy = 1;
+         gridPlatz.anchor = GridBagConstraints.NORTHWEST;
+        // gridPlatz .insets = new Insets(25, 10, 0, 20);
+         getContentPane().add(zinsenTextField, gridPlatz );
          zinsenTextField.addActionListener(new ActionListener()
          {
              public void actionPerformed(ActionEvent e)
@@ -100,10 +127,15 @@ JTextField zinsenTextField = new JTextField();
          
          monateTextField.setText("");
          monateTextField.setColumns(10);
-         monateTextField.setBackground(Color.LIGHT_GRAY);
-         gridBedingung.gridx = 2;
-         gridBedingung.gridy = 2;
-         getContentPane().add(monateTextField, gridBedingung);
+         monateTextField.setPreferredSize(new Dimension(100, 25));
+         monateTextField.setHorizontalAlignment(SwingConstants.RIGHT);
+         monateTextField.setFont(meinFont);
+        // monateTextField.setBackground(new Color(102, 255, 102));
+         gridPlatz .gridx = 1;
+         gridPlatz .gridy = 2;
+         gridPlatz.anchor = GridBagConstraints.NORTHWEST;
+         //gridPlatz .insets = new Insets(30, 0, 10, 20);
+         getContentPane().add(monateTextField, gridPlatz );
          monateTextField.setForeground(Color.BLUE);
          monateTextField.addActionListener(new ActionListener()
          {
@@ -115,12 +147,17 @@ JTextField zinsenTextField = new JTextField();
          
          schlussTextField.setText("");
          schlussTextField.setColumns(10);
-         schlussTextField.setBackground(Color.LIGHT_GRAY);
+         schlussTextField.setPreferredSize(new Dimension(100, 25));
+         schlussTextField.setHorizontalAlignment(SwingConstants.RIGHT);
+         schlussTextField.setFont(meinFont);
+         //schlussTextField.setBackground(new Color(102, 255, 102));
          //Hier entferne ich Das TransversalPolicy aus dem schlussTextField 
          schlussTextField.setFocusable(true);
-         gridBedingung.gridx = 2;
-         gridBedingung.gridy = 3;
-         getContentPane().add(schlussTextField, gridBedingung);
+         gridPlatz .gridx = 1;
+         gridPlatz .gridy = 3;
+         //gridPlatz.anchor = GridBagConstraints.NORTHWEST;
+         //gridPlatz .insets = new Insets(0, 20, 0, 20);
+         getContentPane().add(schlussTextField, gridPlatz );
          schlussTextField.setForeground(Color.BLUE);
          schlussTextField.addActionListener(new ActionListener()
          {
@@ -132,10 +169,13 @@ JTextField zinsenTextField = new JTextField();
          
          
          berechnenButton.setText("Berechnen");
-         berechnenButton.setBackground(Color.ORANGE);
-         gridBedingung.gridx = 0;
-         gridBedingung.gridy = 5;
-         getContentPane().add(berechnenButton, gridBedingung);
+       //rechnenButton.setBackground(Color.ORANGE);
+         gridPlatz .gridx = 0;
+         gridPlatz .gridy = 5;
+         // gridPlatz.gridwidth =2;
+         gridPlatz.anchor = GridBagConstraints.SOUTHEAST;
+        gridPlatz .insets = new Insets(20, 0, 10, 0);
+         getContentPane().add(berechnenButton, gridPlatz );
          berechnenButton.addActionListener(new ActionListener()
          {
              public void actionPerformed(ActionEvent e)
@@ -147,10 +187,13 @@ JTextField zinsenTextField = new JTextField();
          
         beendenButton.setText("Beenden");
         beendenButton.setFocusable(false);
-        beendenButton.setBackground(Color.CYAN);
-         gridBedingung.gridx = 2;
-         gridBedingung.gridy = 5;
-         getContentPane().add(beendenButton, gridBedingung);
+        //beendenButton.setBackground(Color.CYAN);
+         gridPlatz .gridx = 2;
+         gridPlatz .gridy = 5;
+        
+         gridPlatz.anchor = GridBagConstraints.SOUTHWEST;
+        // gridPlatz .insets = new Insets(10, 0, 10, 0);
+         getContentPane().add(beendenButton, gridPlatz );
          beendenButton.addActionListener(new ActionListener()
          {
              public void actionPerformed(ActionEvent e)
@@ -159,12 +202,17 @@ JTextField zinsenTextField = new JTextField();
              }
          });
          
-         loschenButton.setText("Löschen");
+         loschenButton.setText("Reset");
          loschenButton.setFocusable(false);
-         loschenButton.setBackground(Color.GREEN);
-         gridBedingung.gridx = 1;
-         gridBedingung.gridy = 5;
-         getContentPane().add(loschenButton, gridBedingung);
+         loschenButton.setEnabled(false);
+        // loschenButton.setBackground(Color.GREEN);
+        gridPlatz .gridx = 1;
+         gridPlatz .gridy = 5;
+        // gridPlatz.gridwidth =2;
+         
+         gridPlatz.anchor = GridBagConstraints.SOUTH;
+         //gridPlatz .insets = new Insets(10, 0, 10, 0);
+         getContentPane().add(loschenButton, gridPlatz );
          loschenButton.addActionListener(new ActionListener()
          {
              public void actionPerformed(ActionEvent e)
@@ -174,14 +222,64 @@ JTextField zinsenTextField = new JTextField();
              
          });
          
+         anzahlmonateButton.setText("M");
+         gridPlatz.gridx = 2;
+         gridPlatz.gridy= 2;
+         gridPlatz.anchor = GridBagConstraints.SOUTHWEST;
+         gridPlatz.insets = new Insets(5, 20, 0, 20);
+         getContentPane().add(anzahlmonateButton, gridPlatz);
+         anzahlmonateButton.addActionListener(new ActionListener()
+         {
+             public void actionPerformed(ActionEvent e)
+             {             
+                     anzahlmonateButtonActionPerformed(e);
+                 }
+              });
+         schlusssaldoButton.setText("S");
+         gridPlatz.gridx = 2;
+         gridPlatz.gridy= 3;
+         gridPlatz.anchor = GridBagConstraints.CENTER;
+         gridPlatz.anchor = GridBagConstraints.SOUTHWEST;
+         //gridPlatz.insets = new Insets(15, 0, 0 , 0);
+         getContentPane().add(schlusssaldoButton, gridPlatz);
+         schlusssaldoButton.addActionListener(new ActionListener()
+         {
+             public void actionPerformed(ActionEvent e)
+             {             
+                     schlusssaldoButtonActionPerformed(e);
+                 }
+              });
+         erklarungLabel.setText("Analysis:");
+         erklarungLabel.setFont(meinFont);
+         gridPlatz = new GridBagConstraints();
+         gridPlatz.gridx = 3;
+         gridPlatz.gridy = 0;
+         gridPlatz.anchor = GridBagConstraints.WEST;
+         gridPlatz.insets = new Insets( 30, 10, 0,0);
+         getContentPane().add(erklarungLabel, gridPlatz);
+         
+         erklarungTextArea.setPreferredSize(new Dimension(250, 150));
+         erklarungTextArea.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+         erklarungTextArea.setFont(new Font("Courrier New", Font.PLAIN, 14));
+         erklarungTextArea.setEditable(false);
+         erklarungTextArea.setBackground(Color.white);
+         gridPlatz = new GridBagConstraints();
+         gridPlatz.gridx = 3;
+         gridPlatz.gridy = 1;
+         gridPlatz.gridheight = 4;
+         gridPlatz.insets = new Insets(0, 10, 0, 10);
+         getContentPane().add(erklarungTextArea, gridPlatz);
+         
+         
          pack();   
          
          // Mit diesem QuelleText wird das Fenster in Bildschirmmitte erscheinen
          Dimension bildschirmgröße = Toolkit.getDefaultToolkit().getScreenSize();
         setBounds((int) (0.5*(bildschirmgröße.width - getWidth())), (int) (0.5*(bildschirmgröße.height - getHeight())), getWidth(), getHeight());
+         
+        schlusssaldoButton.doClick();
      }
-     
-     
+         
      private void berechnenButtonActionPerformed(ActionEvent e)
      {
          // Initiation der Variable Einzahlung, Zinsen, Monate, Sclusssaldo, MonatlichenZinsen
@@ -190,10 +288,12 @@ JTextField zinsenTextField = new JTextField();
          double monate;
          double schlusssaldo;
          double monatlichenZinsen;
-         double finalCompute, intChange;
+         double finaleBerechnung, intChange;
          int intDirection;
+         loschenButton.setEnabled(true);
          
-    //Eingabe validierung - welcher Felder is leer - Berechnung.
+    /*Eingabe validierung.
+    Bestimmen welche Daten fehlt un dann das fehlende Daten rechnen */
     
     if (einzahlungTextField.getText().equals(""))
             {
@@ -203,18 +303,16 @@ JTextField zinsenTextField = new JTextField();
                     !validateDecimalNumber(schlussTextField))
                 
                 {
-                     // Wenn ein oder mehr Felder kein valid Nummer hat, dann das Program wird beendet
+                     // Wenn ein oder mehr Felder kein valid Nummer hat, dann Program beenden
                     return;
                 }
+              
                 
-          /* Benutzung der Werte von TextFields. Diese Werte werden in
-         Double umwandelen.
-         */       
         zinsen = Double.valueOf(zinsenTextField.getText()).doubleValue();
         monatlichenZinsen = zinsen / 1200;
         monate = Double.valueOf(monateTextField.getText()).doubleValue();
         schlusssaldo = Double.valueOf(schlussTextField.getText()).doubleValue();
-        
+       
         if (zinsen == 0)
         {
             einzahlung = schlusssaldo / monate;
@@ -225,9 +323,16 @@ JTextField zinsenTextField = new JTextField();
         }
                      
         einzahlungTextField.setText(new DecimalFormat("0.00").format(einzahlung));
+       
             }
         else if (zinsenTextField.getText().trim().equals(""))
     {
+        /* Wenn es kein Zinsenwert 
+        intChange = wie andert sich das zinsen
+        intDirection = erhöhung oder verringerung
+        Andere Werte benutzen       
+        */
+      
         if (!validateDecimalNumber(monateTextField) || 
             !validateDecimalNumber(einzahlungTextField) ||
              !validateDecimalNumber(schlussTextField))
@@ -246,10 +351,10 @@ JTextField zinsenTextField = new JTextField();
         {
             zinsen += intDirection*intChange;
             monatlichenZinsen = zinsen / 1200;
-            finalCompute = einzahlung*(Math.pow((1 + monatlichenZinsen), monate)-1) / monatlichenZinsen;
+            finaleBerechnung = einzahlung*(Math.pow((1 + monatlichenZinsen), monate)-1) / monatlichenZinsen;
             if(intDirection == 1)
             {           
-                if(finalCompute > schlusssaldo)
+                if(finaleBerechnung > schlusssaldo)
                 {
                     intDirection = -1;
                     intChange /= 10;
@@ -257,7 +362,7 @@ JTextField zinsenTextField = new JTextField();
             }
                 else 
                 {
-                        if(finalCompute < schlusssaldo)
+                        if(finaleBerechnung < schlusssaldo)
                             {
                                 intDirection = 1;
                                 intChange /= 10;
@@ -265,9 +370,9 @@ JTextField zinsenTextField = new JTextField();
                         }
                 }
         
-                while (Math.abs(finalCompute - schlusssaldo) >= 0.005);
+                while (Math.abs(finaleBerechnung- schlusssaldo) >= 0.005);
                 zinsenTextField.setText(new DecimalFormat("0.00").format(zinsen));
-        }
+        } 
                  else if (monateTextField.getText().trim().equals(""))
                  {
                 if (!validateDecimalNumber(einzahlungTextField) ||
@@ -276,6 +381,8 @@ JTextField zinsenTextField = new JTextField();
                 {
                     return;
                 }
+                
+                // Brechnung von derAnzahl der Monate
             einzahlung = Double.valueOf(einzahlungTextField.getText()).doubleValue();
             zinsen = Double.valueOf(zinsenTextField.getText()).doubleValue();
             monatlichenZinsen = zinsen/1200;
@@ -290,10 +397,20 @@ JTextField zinsenTextField = new JTextField();
             }
             
            monateTextField.setText(new DecimalFormat("0.00").format(monate));
+          
+           erklarungTextArea.setText(" Total einzahlung $" + new DecimalFormat("0.00").format(einzahlung));
+           erklarungTextArea.append("\n" + "Jährlich Zinsen " + zinsen + "%");
+           erklarungTextArea.append("\n" + " Monatlichen Zinsen: " + new DecimalFormat("0.00").format(monatlichenZinsen) + "%");
+           erklarungTextArea.append("\n" + " Schlusssaldo ist  $" + new DecimalFormat("0.00").format(schlusssaldo));
+           erklarungTextArea.append("\n" + " Gesamt Zinsen: $" + new DecimalFormat("0.00").format(schlusssaldo - einzahlung ));
+           erklarungTextArea.append("\n" + " Ich habe für " + new DecimalFormat("0").format(monate) + " Monate eingespart." );
+                       
             }
+                 
+                 
      else if (schlussTextField.getText().trim().equals(""))
         {  
-            
+            // Berechnung von Schlusssaldo
         if(!validateDecimalNumber(monateTextField) || 
         !validateDecimalNumber(zinsenTextField) ||
         !validateDecimalNumber(einzahlungTextField))
@@ -318,7 +435,16 @@ JTextField zinsenTextField = new JTextField();
               }
               
               schlussTextField.setText(new DecimalFormat("0.00").format(schlusssaldo));
+              erklarungTextArea.setText(" Einzahlung: $" + new DecimalFormat("0.00").format(einzahlung));
+              erklarungTextArea.append("\n" + " Monatlichen Zinsen: " + new DecimalFormat("0.00").format(monatlichenZinsen) + "%");
+              erklarungTextArea.append("\n" + " Dauer : " +  new DecimalFormat("0").format(monate) + " Monate");
+              erklarungTextArea.append("\n" + " Total Einzahlung : $ " + einzahlung*monate );
+              erklarungTextArea.append("\n" + " Mein Schlusssaldo ist  $" + new DecimalFormat("0.00").format(schlusssaldo));
+              erklarungTextArea.append("\n" + " Ich habe $" + new DecimalFormat("0.00").format(schlusssaldo-einzahlung) + " Zins bekomt." );
               
+             // Write to textArea for analysis
+             
+             
         }
      }
     private void beendenButtonActionPerformed(ActionEvent e)
@@ -345,6 +471,46 @@ JTextField zinsenTextField = new JTextField();
     {
         schlussTextField.transferFocus();
     }
+    
+    private void schlusssaldoButtonActionPerformed(ActionEvent e)
+    {
+        //Schlusssaldo berechnen
+         schlusssaldoBerechnen  = true;
+         schlusssaldoButton.setVisible(false);
+         monateTextField.setEditable(true);
+         monateTextField.setBackground(Color.WHITE);
+         einzahlungTextField.setText("");
+          zinsenTextField.setText("");
+          monateTextField.setText("");
+          schlussTextField.setText("");
+         schlussTextField.setBackground(lightYellow);
+         berechnenButton.setText("Schlussaldo");
+         anzahlmonateButton.setVisible(true);
+         schlussTextField.setFocusable(false);
+         monateTextField.setFocusable(true);
+    }
+    
+    private void anzahlmonateButtonActionPerformed(ActionEvent e)
+    {
+        // Anzahl monate berechnen
+        schlusssaldoBerechnen = false;
+        schlusssaldoButton.setVisible(true);
+        anzahlmonateButton.setVisible(false);
+        monateTextField.setText("");
+        schlussTextField.setText("");
+        zinsenTextField.setText("");
+        einzahlungTextField.setText("");
+        schlussTextField.setEditable(true);
+        schlussTextField.setBackground(Color.WHITE);
+        monateTextField.setBackground(lightYellow);
+        berechnenButton.setText("Anzahl Monate");
+        monateTextField.setFocusable(false);
+        schlussTextField.setFocusable(true);
+        erklarungTextArea.setText("");
+        
+    }
+    
+    
     
     private void exitForm(WindowEvent e)
     {
@@ -401,5 +567,6 @@ JTextField zinsenTextField = new JTextField();
          monateTextField.setText("");
          schlussTextField.setText("");
          einzahlungTextField.requestFocus();
+         erklarungTextArea.setText("");
      }
 }

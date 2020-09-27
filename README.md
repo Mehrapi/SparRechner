@@ -32,3 +32,9 @@ Nach der Berechnung von der Anzahl der Monate die Analysis des Ergebnis ist auf 
 
 
 ![ErsparnisAssistant3](https://user-images.githubusercontent.com/71266593/94365683-2f80c600-00d3-11eb-824b-0ab2b30de922.PNG)
+
+**3. Eingabe Validierung**
+Mit diese Applikation wenn mann unvalid Anzahl eingibt, zb. Anzahl mit zwei Kommas oder Buschtable, dieser wird automatish gelöscht, und man soll neue Anzahl eingeben.
+Außerdem wenn ein Felder ist leer, man bekommt kein Ergebnis, bis eine valide Anzahl an diesem Feld ist eingegeben. 
+
+

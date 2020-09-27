@@ -327,11 +327,11 @@ public class SparKonto extends JFrame {
             }
         else if (zinsenTextField.getText().trim().equals(""))
     {
-        /* Wenn es kein Zinsenwert 
+        /*Wenn es kein Zinsenwert 
         intChange = wie andert sich das zinsen
         intDirection = erhöhung oder verringerung
-        Andere Werte benutzen       
-        */
+        Andere Werte benutzen      */  
+        
       
         if (!validateDecimalNumber(monateTextField) || 
             !validateDecimalNumber(einzahlungTextField) ||
@@ -398,12 +398,14 @@ public class SparKonto extends JFrame {
             
            monateTextField.setText(new DecimalFormat("0.00").format(monate));
           
-           erklarungTextArea.setText(" Total einzahlung $" + new DecimalFormat("0.00").format(einzahlung));
-           erklarungTextArea.append("\n" + "Jährlich Zinsen " + zinsen + "%");
+        // Analysis auf den Analysis TextFled zeigen
+           
+           erklarungTextArea.setText(" Total einzahlung: $" + new DecimalFormat("0.00").format(einzahlung));
+           erklarungTextArea.append("\n" + " Jährlich Zinsen: " + zinsen + "%");
            erklarungTextArea.append("\n" + " Monatlichen Zinsen: " + new DecimalFormat("0.00").format(monatlichenZinsen) + "%");
-           erklarungTextArea.append("\n" + " Schlusssaldo ist  $" + new DecimalFormat("0.00").format(schlusssaldo));
-           erklarungTextArea.append("\n" + " Gesamt Zinsen: $" + new DecimalFormat("0.00").format(schlusssaldo - einzahlung ));
-           erklarungTextArea.append("\n" + " Ich habe für " + new DecimalFormat("0").format(monate) + " Monate eingespart." );
+           erklarungTextArea.append("\n" + " Schlusssaldo:  $" + new DecimalFormat("0.00").format(schlusssaldo));  
+           erklarungTextArea.append("\n\n" + " Der gesamt Zins auf $" + new DecimalFormat("0.0").format(schlusssaldo - einzahlung ) + " habe ich");
+           erklarungTextArea.append("\n" + " nach " + new DecimalFormat("0").format(monate) + " Monate Einsparung bekommt." );
                        
             }
                  
@@ -439,10 +441,9 @@ public class SparKonto extends JFrame {
               erklarungTextArea.append("\n" + " Monatlichen Zinsen: " + new DecimalFormat("0.00").format(monatlichenZinsen) + "%");
               erklarungTextArea.append("\n" + " Dauer : " +  new DecimalFormat("0").format(monate) + " Monate");
               erklarungTextArea.append("\n" + " Total Einzahlung : $ " + einzahlung*monate );
-              erklarungTextArea.append("\n" + " Mein Schlusssaldo ist  $" + new DecimalFormat("0.00").format(schlusssaldo));
+              erklarungTextArea.append("\n\n" + " Mein Schlusssaldo ist  $" + new DecimalFormat("0.00").format(schlusssaldo));
               erklarungTextArea.append("\n" + " Ich habe $" + new DecimalFormat("0.00").format(schlusssaldo-einzahlung) + " Zins bekomt." );
               
-             // Write to textArea for analysis
              
              
         }
@@ -507,10 +508,9 @@ public class SparKonto extends JFrame {
         monateTextField.setFocusable(false);
         schlussTextField.setFocusable(true);
         erklarungTextArea.setText("");
+        loschenButton.setEnabled(false);
         
     }
-    
-    
     
     private void exitForm(WindowEvent e)
     {

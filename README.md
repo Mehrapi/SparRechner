@@ -10,9 +10,6 @@ kann auch die montaliche Einzahlung berechnen wenn man die jährlich Zinsenzahlu
 
 Eine Snapshot der fertigen App ist unten 👇 zu sehen. 
 
-
-![ErsparnisAssistant](https://user-images.githubusercontent.com/71266593/94355583-7516a200-0085-11eb-8ccb-23c37baf6d3f.png)
-
 Bereit Schlusssaldo zu Berechnen, und die option fur die Berrechnung der Anzahl der Monate aktiviert
 
 ![ErsparnisAssistant - Kopie](https://user-images.githubusercontent.com/71266593/94361054-e79d7700-00b1-11eb-94ad-0b5cff6788f7.png)
@@ -20,7 +17,16 @@ Bereit Schlusssaldo zu Berechnen, und die option fur die Berrechnung der Anzahl 
 
 Nach berechnung schlusssaldo
 
-![ErsparnisAssistant2](https://user-images.githubusercontent.com/71266593/94360384-0a795c80-00ad-11eb-93ce-cfcc211bf124.png)
+
+![ErsparnisAssistant3](https://user-images.githubusercontent.com/71266593/94361520-1d902a80-00b5-11eb-83e1-874ed3dc2014.PNG)
+
+Bereit für die berechnung der Anzahl der Monate
 
 
+![ErsparnisAssistant4](https://user-images.githubusercontent.com/71266593/94361535-3dbfe980-00b5-11eb-87ce-25b490565abd.PNG)
+
+Nach Berechnung von der Anzahl der Monate
+
+
+![ErsparnisAssistant3](https://user-images.githubusercontent.com/71266593/94361548-592af480-00b5-11eb-8fbc-c32db82daaff.PNG)
 

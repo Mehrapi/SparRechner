@@ -26,7 +26,7 @@ Bereit für die berechnung der Anzahl der Monate
 
 ![ErsparnisAssistant4](https://user-images.githubusercontent.com/71266593/94362343-e91f6d00-00ba-11eb-9243-ed4d202f5889.PNG)
 
-Nach Berechnung von der Anzahl der Monate die Analysis des Ergebnis ist auf dem Analysis' Textfeld gezeigt. Wenn man den Schlusssaldo berechnen möchte, cklick man auf den (S) Button und die Berechnung Option andert sich. 
+Nach der Berechnung von der Anzahl der Monate die Analysis des Ergebnis ist auf dem Analysis' Textfeld gezeigt. Wenn man den Schlusssaldo berechnen möchte, cklick man auf den (S) Button und die Berechnung Option andert sich. 
 
 
 ![ErsparnisAssistant3](https://user-images.githubusercontent.com/71266593/94361548-592af480-00b5-11eb-8fbc-c32db82daaff.PNG)

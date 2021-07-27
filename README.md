@@ -1,7 +1,7 @@
 # Hallo 👋
 **Wilkommen auf meinem  Ersparnis Assistant Repo!**
 
-Mit diesem Java Projekt habe ich eine Ersparnis Assistant Appikation verwirklicht. Sie hat Zwei Funktion:
+Mit diesem Java Projekt habe ich eine Ersparnis Assistant Appikation verwirklicht. Sie hat Zwei Funktionen:
 - Berechnung von dem Schlussaldo. 
 - Berechnung von der Anzahl der Monate. 
 
